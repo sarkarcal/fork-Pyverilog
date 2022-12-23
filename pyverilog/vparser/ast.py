@@ -272,13 +272,14 @@ class StringConst(Constant):
 class Variable(Value):
     attr_names = ('name', 'signed')
 
-    def __init__(self, name, width=None, signed=False, dimensions=None, value=None, lineno=0):
+    def __init__(self, name, width=None, signed=False, dimensions=None, value=None, lineno=0, label = None):
         self.lineno = lineno
         self.name = name
         self.width = width
         self.signed = signed
         self.dimensions = dimensions
         self.value = value
+        self.label = label
 
     def children(self):
         nodelist = []
@@ -288,6 +289,8 @@ class Variable(Value):
             nodelist.append(self.dimensions)
         if self.value:
             nodelist.append(self.value)
+        if self.label:
+            nodelist.append(self.label)
         return tuple(nodelist)
 
 

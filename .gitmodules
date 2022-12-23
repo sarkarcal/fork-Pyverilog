@@ -1,0 +1,3 @@
+[submodule "fork-SecVerilog"]
+	path = fork-SecVerilog
+	url = ../fork-SecVerilog/

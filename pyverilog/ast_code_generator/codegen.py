@@ -259,6 +259,7 @@ class ASTCodeGenerator(ConvertVisitor):
             'width': '' if node.width is None else self.visit(node.width),
             'signed': node.signed,
             'dimensions': '' if node.dimensions is None else self.visit(node.dimensions),
+            'label': '' if node.label is None else node.label,
         }
         rslt = template.render(template_dict)
         return rslt
@@ -319,6 +320,7 @@ class ASTCodeGenerator(ConvertVisitor):
             'width': '' if node.width is None else self.visit(node.width),
             'signed': node.signed,
             'dimensions': '' if node.dimensions is None else self.visit(node.dimensions),
+            'label': '' if node.label is None else node.label,
         }
         rslt = template.render(template_dict)
         return rslt
@@ -331,8 +333,10 @@ class ASTCodeGenerator(ConvertVisitor):
             'width': '' if node.width is None else self.visit(node.width),
             'signed': node.signed,
             'dimensions': '' if node.dimensions is None else self.visit(node.dimensions),
+            'label': '' if node.label is None else node.label,
         }
         rslt = template.render(template_dict)
+        print(rslt)
         return rslt
 
     def visit_Integer(self, node):
